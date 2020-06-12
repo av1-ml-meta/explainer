@@ -1,6 +1,11 @@
 # Explainer
 Proposal to add Machine Learning attributes as Meta in AV1 specification
 
+# Problem we are trying to solve
+
+Currently, to perform real-time object detection on client-side, either we need to have the hardwarecapability and corresponding heavy loaded software stack or the cloud support. Again, each client
+has to repeat the same operations. On the other hand, If there is a generic meta to save the position coordinates of objects as part of the coded bitstream, It will only the Video Content Producers supposed to perform the object detection. The object-meta can be stuffed to the compressed bitstream. Then it will be just the matter of a few lines of software changes for most of the video players to draw circles around the images in each video frame. Even old and legacy platforms & softwares will beable to do this in zero cost
+
 # ML Metadata
 
 Add Machine Learning metadata as part of AV1 spec, the data entails scene-specific information for:
