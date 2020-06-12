@@ -47,3 +47,56 @@ The information consists of image labels, coordinate information of objects, sce
         	metadata_ml_attributes( )
 	}
 
+# Metadata ML attributes syntax (5.8.8)
+
+| metadata_ml_attributes() {                           |    Type     |
+| -------------------------------                      | ----------- |
+|   scene_classification_data_present_flag             |     f(1)    |
+|   if ( scene_classification_data_present_flag ) {    |             |
+|     n = scene_classification_data_description_length |     f(8)    |
+|     scene_classification_data_description            |   string(n) |
+|     model_architecture_name_present_flag             |     f(1)    |
+|     if ( model_architecture_name_present_flag ) {    |             |
+|       n = model_architecture_name_length             |     f(8)    |
+|       model_architecutre_name                        |   string(n) |
+|     }                                                |             |
+|     model_data_set_name_present_flag                 |    f(1)     |
+|     if (model_data_set_name_present_flag) {          |             |
+|       n = model_data_set_name_length                 |    f(8)     |
+|       model_dataset_name                             |   string(n) |
+|     }                                                |             |
+|     confidience_value                                |    f(8)     |
+|   }                                                  |             |
+|                                                      |             | 
+|   object_annotation_present_flag                       |    f(1)     |
+|   if (object_annotation_present_flag) {                |             |
+|     N = number_of_identified_objects                   |    f(8) //Upto 256 objects per frame |
+|     for ( i = 0; i < N; i++ ) {                        |             |
+|       object_label_name_present_flag                   |    f(1)     |
+|       if (object_label_name_present_flag) {            |             |
+|         n = object_label_name_length                   |    f(8)     |
+|         object_label_name                              |  string(n)  |
+|       }                                                |             |
+|       object_bounding_box_y_coordinate                 |    f(16)    |
+|       object_bounding_box_y_coordinate                 |    f(16)    |
+|       object_bounding_box_width                        |    f(16)    |
+|       object_bounding_box_height                       |    f(16)    |
+|       confidience_value                                |    f(8)     |
+|     }                                                  |             |
+|     model_architecture_name_present_flag               |    f(1)     |
+|     if (model_architecture_name_present_flag) {        |             |
+|       n = model_architecture_name_length               |    f(8)     |
+|       model_architecutre_name                          |  string(n)  |
+|     }                                                  |             |
+|     model_data_set_name_present_flag                   |    f(1)     |
+|     if (model_data_set_name_present_flag) {            |             |
+|       n = model_data_set_name_length                   |    f(8)     |
+|       model_data_set_name                              |  string(n)  |
+|     }                                                  |             |
+|   }                                                    |             |
+| }                                                      |             |
+|                                                        |             |
+ 
+ 
+
+
