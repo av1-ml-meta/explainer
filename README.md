@@ -1,10 +1,12 @@
 # Explainer
+
 Proposal to add Machine Learning attributes as Meta in AV1 specification
 
 # Problem we are trying to solve
 
-Currently, to perform real-time object detection on client-side, either we need to have the hardwarecapability and corresponding heavy loaded software stack or the cloud support. Again, each client
-has to repeat the same operations. On the other hand, If there is a generic meta to save the position coordinates of objects as part of the coded bitstream, It will only the Video Content Producers supposed to perform the object detection. The object-meta can be stuffed to the compressed bitstream. Then it will be just the matter of a few lines of software changes for most of the video players to draw circles around the images in each video frame. Even old and legacy platforms & softwares will beable to do this in zero cost
+Today, to apply realtime machine vision techniques using Machine Learning like real-time object recogintion, frame classfication and image segmentation on client-side in a performant way, either we need to have the dedicated harware accelerators capability and corresponding heavy loaded software stack or the cloud support. 
+
+Let's take the case of object detecton as an example, to do realtime detection of objects in each frame, today, each client has to decode each of the video frame and apply the Machine vision algorithm, this does not scale from a hardware of a software perspective when each client has to do the same compute intesive operations. On the other hand, if there is a generic meta to save the position coordinates of objects, as part of the coded bitstream, only the video content producers need to perform the object detection or frame classification. The object-meta can be embedded as part of the compressed bitstream, then it will be just the matter of a few lines of software changes for most of the video players to draw bounding boxes around the objects in each video frame. This would enable even old and legacy platforms & softwares to do this in zero cost.
 
 # ML Metadata
 
