@@ -521,3 +521,15 @@ TRUE / 0x0007 / 0x03 / “dog” / X-dog / Y-dog / W-dog / H-dog / 0x03 / “MAN
        X-{xxx} & Y-{xxx} indicate X coordinate and Y coordinate of the object bounding box
        W-{xxx} & H-{xxx} indicate Width & Height of the object bounding box
 
+# ToDo
+
+a) Semantic segment Annotation** of each Frame (Optional)
+
+- 	Can be used to understand what the scene represents and relationships between objects.
+-	Number of segments, Labels, per pixel masks for each segment, along with model name, version, dataset  are the attributes needed.
+-	Per pixel masks could be too much information to put in meta. May be a seperate video stream could be an option.
+ 
+	** https://arxiv.org/pdf/1909.11065v2.pdf 
+
+
+
