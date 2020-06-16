@@ -30,7 +30,15 @@ The information consists of image labels, coordinate data of objects, scene sema
     - Confidence value : int
           Classification accuracy based on the model
 
+
+![classification vs obj detection](https://docs.microsoft.com/en-us/dotnet/machine-learning/tutorials/media/object-detection-onnx/img-classification-obj-detection.png)
+
+
 # Localized Object Annotation*
+
+![object_detect_ph](https://docs.microsoft.com/en-us/cognitive-toolkit/tutorial_fastrcnn/bus_01.jpg)
+
+
     - Number of objects : int
     - Coordinate information : [] 
     - Height, width : []
