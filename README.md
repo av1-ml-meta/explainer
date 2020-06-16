@@ -6,8 +6,7 @@ Proposal to add Machine Learning attributes as Meta in AV1 specification
 
 Today, to apply machine vision techniques using Machine Learning like real-time object recognition on client-side in, we need to have the dedicated hardware accelerators capability and corresponding heavy loaded software stack or the cloud support. 
 
-Let's take the case of object detection as an example; today, each client has to decode each of the video frames and apply the Machine vision algorithm. This does not scale from a hardware or a software perspective when each client has to do the same compute-intensive operations. On the other hand, if there is a generic meta to save the position coordinates of objects, only the video content producers need to perform the object detection or frame classification as part of the coded bitstream. The object-meta can be embedded as part of the compressed bitstream, and then it will be just a few lines of software changes for most of the video players to draw bounding boxes around the objects in each video frame. This would enable even old and legacy platforms & software to do this in zero cost.
-
+Let's take the case of object detection as an example; today, each client has to decode each of the video frames and apply the Machine vision algorithm. This does not scale from a hardware or a software perspective when each client has to do the same compute-intensive operations. On the other hand, if there is a generic meta to save the position coordinates of objects, only the video content producers need to perform the object detection or frame classification. The object-meta can be embedded as part of the compressed bitstream, and then it will be just a few lines of software changes for most of the video players to draw bounding boxes around the objects in each video frame. This would enable even legacy platforms to use features like object detection and classification of video frames with minimal implementation cost.
 
 ![media_pipeline_today](data/m-pipeline-today.png)
 
@@ -535,6 +534,4 @@ a) Semantic segment Annotation** of each Frame (Optional)
 -	Per pixel masks could be too much information to put in meta. May be a seperate video stream could be an option.
  
 	** https://arxiv.org/pdf/1909.11065v2.pdf 
-
-
 
