@@ -507,3 +507,17 @@ The information consists of image labels, coordinate data of objects, scene sema
 <td></td>
 </tr>
 </table>
+
+# Sample Bitstream format
+
+Metadata OBU extension (5.8.1)
+…..0x06…// METADATA_TYPE_ML_ATTRIBUTES
+
+scene_classification_data_present_flag / scene_classification_data_description_length / scene_classification_data_description /   model_architecture_name_length / model_architecutre_name / model_data_set_name_length / model_data_set_name /  object_annotation_present_flag / number_of_identified_objects / object_label_name_length / object_label_name / object_bounding_box_x_coordinate / object_bounding_box_y_coordinate / object_bounding_box_width /  object_bounding_box_height / model_architecture_name_length / model_architecutre_name / model_data_set_name_length / model_dataset_name
+
+/ TRUE / 0x12 / “Person, sheep, dog” /  0x08 / “ResNet50” /  0x08 / “ImageNet” / 0X5F = (95%) / 
+TRUE / 0x0007 / 0x03 / “dog” / X-dog / Y-dog / W-dog / H-dog / 0x03 / “MAN”  / X-man / Y-man / W-man / H-man / 0x05 /  “sheep1” / X-sheep1 / Y-sheep1 / W-sheep1 / H-sheep1 / 0x05 /  “sheep2” / X-sheep2 / Y-sheep2 / W-sheep2 / H-sheep2 / 0x05  /  “sheep3” / X-sheep3 / Y-sheep3 / W-sheep3 / H-sheep3  / 0x05 /  “sheep4” / X-sheep4 / Y-sheep4 / W-sheep4 / H-sheep4 /  0x5 /  “sheep5” / X-sheep5 / Y-sheep5 / W-sheep5 / H-sheep5 /  0x04 / “Yolo”/ 0x04 / “Coco” / 0x5A (= 90%) /
+
+       X-{xxx} & Y-{xxx} indicate X coordinate and Y coordinate of the object bounding box
+       W-{xxx} & H-{xxx} indicate Width & Height of the object bounding box
+
