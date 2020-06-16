@@ -9,9 +9,9 @@ Today, to apply machine vision techniques using Machine Learning like real-time 
 Let's take the case of object detection as an example; today, each client has to decode each of the video frames and apply the Machine vision algorithm. This does not scale from a hardware or a software perspective when each client has to do the same compute-intensive operations. On the other hand, if there is a generic meta to save the position coordinates of objects, only the video content producers need to perform the object detection or frame classification as part of the coded bitstream. The object-meta can be embedded as part of the compressed bitstream, and then it will be just a few lines of software changes for most of the video players to draw bounding boxes around the objects in each video frame. This would enable even old and legacy platforms & software to do this in zero cost.
 
 
-![media_pipeline_today](data/media_pipeline_today.jpg)
+![media_pipeline_today](data/m-pipeline-today.png)
 
-![media_pipeline_proposed](data/media_pipeline_proposed.jpg)
+![media_pipeline_proposed](data/m-pipeline-proposed.png)
 
 # ML Metadata
 
