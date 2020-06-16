@@ -50,54 +50,452 @@ The information consists of image labels, coordinate data of objects, scene sema
 
 # Metadata ML attributes syntax (5.8.8)
 
-| metadata_ml_attributes() {                           |    Type     |
-| -------------------------------                      | ----------- |
-|   scene_classification_data_present_flag             |     f(1)    |
-|   if ( scene_classification_data_present_flag ) {    |             |
-|     n = scene_classification_data_description_length |     f(8)    |
-|     scene_classification_data_description            |   string(n) |
-|     model_architecture_name_present_flag             |     f(1)    |
-|     if ( model_architecture_name_present_flag ) {    |             |
-|       n = model_architecture_name_length             |     f(8)    |
-|       model_architecutre_name                        |   string(n) |
-|     }                                                |             |
-|     model_data_set_name_present_flag                 |    f(1)     |
-|     if (model_data_set_name_present_flag) {          |             |
-|       n = model_data_set_name_length                 |    f(8)     |
-|       model_dataset_name                             |   string(n) |
-|     }                                                |             |
-|     confidience_value                                |    f(8)     |
-|   }                                                  |             |
-|                                                      |             | 
-|   object_annotation_present_flag                       |    f(1)     |
-|   if (object_annotation_present_flag) {                |             |
-|     N = number_of_identified_objects                   |    f(8) //Upto 256 objects per frame |
-|     for ( i = 0; i < N; i++ ) {                        |             |
-|       object_label_name_present_flag                   |    f(1)     |
-|       if (object_label_name_present_flag) {            |             |
-|         n = object_label_name_length                   |    f(8)     |
-|         object_label_name                              |  string(n)  |
-|       }                                                |             |
-|       object_bounding_box_y_coordinate                 |    f(16)    |
-|       object_bounding_box_y_coordinate                 |    f(16)    |
-|       object_bounding_box_width                        |    f(16)    |
-|       object_bounding_box_height                       |    f(16)    |
-|       confidience_value                                |    f(8)     |
-|     }                                                  |             |
-|     model_architecture_name_present_flag               |    f(1)     |
-|     if (model_architecture_name_present_flag) {        |             |
-|       n = model_architecture_name_length               |    f(8)     |
-|       model_architecutre_name                          |  string(n)  |
-|     }                                                  |             |
-|     model_data_set_name_present_flag                   |    f(1)     |
-|     if (model_data_set_name_present_flag) {            |             |
-|       n = model_data_set_name_length                   |    f(8)     |
-|       model_data_set_name                              |  string(n)  |
-|     }                                                  |             |
-|   }                                                    |             |
-| }                                                      |             |
-|                                                        |             |
- 
- 
+<table>
+<tr>
+<td> metadata_ml_attributes() {</td> <td>  Type  </td>
+</tr>
+<tr>
+<td> 
+
+```c
+    scene_classification_data_present_flag
+```
+ </td> 
+ <td> f(1) </td>
+<tr>
+<td>
+
+```c
+    if ( scene_classification_data_present_flag ) { 
+```
+</td>
+<td></td>
+</tr>
+<tr>
+<td> 
+    
+```c 
+n = scene_classification_data_description_length
+```
+</td> 
+<td> f(8) </td>
+</tr>
+
+<tr>
+<td> 
+    
+```c 
+scene_classification_data_description
+```
+</td> 
+<td> string(n) </td>
+</tr>
+<tr>
+<td> 
+    
+```c 
+model_architecture_name_present_flag
+```
+</td> 
+<td> f(1) </td>
+</tr>
+
+<tr>
+<td> 
+    
+```c 
+if ( model_architecture_name_present_flag ) {
+```
+</td> 
+<td> </td>
+</tr>
 
 
+<tr>
+<td> 
+    
+```c 
+n = model_architecture_name_length
+```
+</td> 
+<td> f(8) </td>
+</tr>
+
+
+<tr>
+<td> 
+    
+```c 
+model_architecutre_name
+```
+</td> 
+<td> string(n) </td>
+</tr>
+
+<tr>
+<td> 
+    
+```c 
+}
+```
+</td> 
+<td> </td>
+</tr>
+
+<tr>
+<td> 
+    
+```c 
+model_data_set_name_present_flag
+```
+</td> 
+<td>f(1) </td>
+</tr>
+
+<tr>
+<td> 
+    
+```c 
+if (model_data_set_name_present_flag) {
+```
+</td> 
+<td></td>
+</tr>
+
+<tr>
+<td> 
+    
+```c 
+n = model_data_set_name_length
+```
+</td> 
+<td>f(8)</td>
+</tr>
+
+<tr>
+<td> 
+    
+```c 
+model_dataset_name
+```
+</td> 
+<td>string(n)</td>
+</tr>
+
+
+<tr>
+<td> 
+    
+```c 
+}
+```
+</td> 
+<td></td>
+</tr>
+
+<tr>
+<td> 
+    
+```c 
+confidience_value
+```
+</td> 
+<td>f(8)</td>
+
+</tr>
+
+<tr>
+<td> 
+    
+```c 
+}
+```
+</td> 
+<td></td>
+
+</tr>
+
+
+<tr>
+<td> 
+    
+```c 
+object_annotation_present_flag
+```
+</td> 
+<td>f(1)</td>
+</tr>
+
+
+<tr>
+<td> 
+    
+```c 
+if (object_annotation_present_flag) {
+```
+</td> 
+<td></td>
+</tr>
+
+<tr>
+<td> 
+    
+```c 
+N = number_of_identified_objects
+```
+</td> 
+<td>f(8) //Upto 256 objects per frame</td>
+</tr>
+
+<tr>
+<td> 
+    
+```c 
+for ( i = 0; i < N; i++ ) {
+
+```
+</td> 
+<td></td>
+</tr>
+
+<tr>
+<td> 
+    
+```c 
+object_label_name_present_flag
+```
+</td> 
+<td>f(1)</td>
+</tr>
+
+<tr>
+<td> 
+    
+```c 
+if (object_label_name_present_flag) {
+```
+</td> 
+<td></td>
+</tr>
+
+<tr>
+<td> 
+    
+```c 
+n = object_label_name_length
+```
+</td> 
+<td>f(8)</td>
+</tr>
+
+<tr>
+<td> 
+    
+```c 
+object_label_name
+```
+</td> 
+<td>string(n)</td>
+</tr>
+
+<tr>
+<td> 
+    
+```c 
+}
+```
+</td> 
+<td></td>
+</tr>
+
+<tr>
+<td> 
+    
+```c 
+object_bounding_box_x_coordinate
+```
+</td> 
+<td>f(16)</td>
+</tr>
+
+
+
+<tr>
+<td> 
+    
+```c 
+object_bounding_box_y_coordinate
+```
+</td> 
+<td>f(16)</td>
+</tr>
+
+<tr>
+<td> 
+    
+```c 
+object_bounding_box_width
+```
+</td> 
+<td>f(16)</td>
+</tr>
+
+
+
+<tr>
+<td> 
+    
+```c 
+object_bounding_box_height
+```
+</td> 
+<td>f(16)</td>
+</tr>
+
+
+<tr>
+<td> 
+    
+```c 
+confidence_value
+```
+</td> 
+<td>f(8)</td>
+</tr>
+
+
+
+<tr>
+<td> 
+    
+```c 
+}
+```
+</td> 
+<td></td>
+</tr>
+
+<tr>
+<td> 
+    
+```c 
+model_architecture_name_present_flag
+```
+</td> 
+<td>f(1)</td>
+</tr>
+
+<tr>
+<td> 
+    
+```c 
+if (model_architecture_name_present_flag) {
+```
+</td> 
+<td></td>
+</tr>
+
+<tr>
+<td> 
+    
+```c 
+n = model_architecture_name_length
+```
+</td> 
+<td>f(8)</td>
+</tr>
+
+<tr>
+<td> 
+    
+```c 
+model_architecutre_name
+```
+</td> 
+<td>string(n)</td>
+</tr>
+
+
+<tr>
+<td> 
+    
+```c 
+}
+```
+</td> 
+<td></td>
+</tr>
+
+
+<tr>
+<td> 
+    
+```c 
+model_data_set_name_present_flag
+```
+</td> 
+<td>f(1)</td>
+</tr>
+
+
+<tr>
+<td> 
+    
+```c 
+if (model_data_set_name_present_flag) {
+```
+</td> 
+<td></td>
+</tr>
+
+<tr>
+<td> 
+    
+```c 
+n = model_architecture_name_length
+```
+</td> 
+<td>f(8)</td>
+</tr>
+
+
+<tr>
+<td> 
+    
+```c 
+model_data_set_name
+```
+</td> 
+<td>string(n)</td>
+</tr>
+
+<tr>
+<td> 
+    
+```c 
+}
+```
+</td> 
+<td></td>
+</tr>
+
+<tr>
+<td> 
+    
+```c 
+}
+```
+</td> 
+<td></td>
+</tr>
+
+<tr>
+<td> 
+    
+```c 
+}
+```
+</td> 
+<td></td>
+</tr>
+</table>
