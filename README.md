@@ -70,7 +70,25 @@ The information consists of image labels, coordinate data of objects, scene sema
 <td> 
 
 ```c
-    scene_classification_data_present_flag
+    persist_scene_classification_flag
+```
+ </td> 
+ <td> f(1) </td>
+</tr>
+<tr>
+<td>
+
+```c
+    if ( !persist_scene_classification_flag ) 
+```
+</td>
+<td></td>
+</tr>
+<tr>
+<td> 
+
+```c
+        scene_classification_data_present_flag
 ```
  </td> 
  <td> f(1) </td>
